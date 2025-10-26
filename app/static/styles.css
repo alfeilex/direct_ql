@@ -1,0 +1,139 @@
+:root {
+  font-family: "Inter", Arial, sans-serif;
+  color: #1b1b1b;
+  background: #f6f7fb;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  background: linear-gradient(135deg, #4376ff, #6f9dff);
+  color: white;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem;
+}
+
+.panel {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-height: calc(100vh - 3rem);
+  overflow-y: auto;
+}
+
+.panel h2 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #5b6b92;
+  margin-bottom: 0.5rem;
+}
+
+#document-select,
+input[type="file"],
+input[type="text"],
+button {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid #d9def1;
+  font-size: 0.95rem;
+}
+
+button {
+  background: #4376ff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+button:disabled {
+  background: #aeb9d4;
+  cursor: default;
+}
+
+button:hover:not(:disabled) {
+  background: #335eea;
+}
+
+.viewer {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.toolbar {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.toolbar select,
+.toolbar input {
+  flex: 1;
+}
+
+.selected-text,
+.result {
+  min-height: 3rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f2f4ff;
+  border: 1px dashed #d0d6f0;
+  white-space: pre-wrap;
+}
+
+#pdf-viewer {
+  height: 70vh;
+  overflow-y: auto;
+  border: 1px solid #e1e4f0;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #f9faff;
+}
+
+.page-container {
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.annotation {
+  border-left: 3px solid #335eea;
+  padding-left: 0.75rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.flashcard {
+  border: 1px solid #c9d2f0;
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background: #f8f9ff;
+}
+
+.flashcard strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
