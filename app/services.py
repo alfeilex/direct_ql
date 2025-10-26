@@ -87,14 +87,18 @@ class DocumentStore:
 
     def list_documents(self) -> List[Dict[str, str]]:
         documents: List[Dict[str, str]] = []
-        for file_path in self.base_dir.glob("*_*.pdf"):
+        for file_path in self.base_dir.glob("*_*"):
+            if not file_path.is_file() or file_path.suffix.lower() != ".pdf":
+                continue
             doc_id, original_name = file_path.name.split("_", 1)
             documents.append({"id": doc_id, "name": original_name})
         return sorted(documents, key=lambda x: x["name"].lower())
 
     def get_path(self, document_id: str) -> Path | None:
-        matches = list(self.base_dir.glob(f"{document_id}_*.pdf"))
-        return matches[0] if matches else None
+        for file_path in self.base_dir.glob(f"{document_id}_*"):
+            if file_path.is_file() and file_path.suffix.lower() == ".pdf":
+                return file_path
+        return None
 
 
 class PromptService:
