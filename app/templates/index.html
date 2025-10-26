@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>DirectQL PDF Annotator</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>DirectQL – PDF Annotations- und Prompt-Zentrale</h1>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>1. PDF hochladen</h2>
+      <form id="upload-form">
+        <input type="file" name="file" accept="application/pdf" required />
+        <button type="submit">Hochladen</button>
+      </form>
+
+      <h2>2. Dokument wählen</h2>
+      <select id="document-select"></select>
+
+      <h2>Annotationen</h2>
+      <ul id="annotation-list"></ul>
+
+      <h2>Flashcards</h2>
+      <ul id="flashcard-list"></ul>
+    </section>
+
+    <section class="viewer">
+      <div class="toolbar">
+        <label for="action-select">Aktion:</label>
+        <select id="action-select">
+          <option value="translate">Übersetzen</option>
+          <option value="explain">Erklären</option>
+          <option value="flashcard">In Karteikarte speichern</option>
+        </select>
+        <input type="text" id="note-input" placeholder="Notiz (optional)" />
+        <button id="process-button" disabled>Ausführen</button>
+      </div>
+      <div id="selected-text" class="selected-text"></div>
+      <div id="result" class="result"></div>
+      <div id="pdf-viewer" class="pdf-viewer"></div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
