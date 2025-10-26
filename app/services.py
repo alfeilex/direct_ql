@@ -44,6 +44,9 @@ class JSONStore:
 
 
 class AnnotationStore(JSONStore):
+    def __init__(self, path: Path = ANNOTATIONS_FILE):
+        super().__init__(path)
+
     def list_for_document(self, document_id: str) -> List[Annotation]:
         return [Annotation(**item) for item in self._read() if item["document_id"] == document_id]
 
@@ -56,6 +59,9 @@ class AnnotationStore(JSONStore):
 
 
 class FlashcardStore(JSONStore):
+    def __init__(self, path: Path = FLASHCARDS_FILE):
+        super().__init__(path)
+
     def list(self) -> List[Flashcard]:
         return [Flashcard(**item) for item in self._read()]
 
