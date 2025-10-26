@@ -13,8 +13,14 @@ let currentDocumentId = null;
 let currentPDF = null;
 let lastSelection = "";
 
-const pdfjsLib = window["pdfjs-dist/build/pdf"];
-pdfjsLib.GlobalWorkerOptions.workerSrc = "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js";
+const pdfjsLib = window.pdfjsLib;
+
+if (!pdfjsLib) {
+  throw new Error("PDF.js library failed to load");
+}
+
+pdfjsLib.GlobalWorkerOptions.workerSrc =
+  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.js";
 
 async function loadDocuments() {
   const response = await fetch("/api/documents");
